@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="banner-title">
+  <title id="banner-title">Pessoas reunidas em uma atividade comunitária</title>
+  <rect width="640" height="480" rx="28" fill="#cbe7eb"/>
+  <circle cx="514" cy="95" r="54" fill="#f2b36e"/>
+  <path d="M0 358c106-78 170-54 256-1 100 61 194 42 384-31v154H0Z" fill="#7bb7ad"/>
+  <path d="M0 397c142-67 259 40 390-5 83-28 160-21 250 15v73H0Z" fill="#568e89"/>
+  <g stroke="#123354" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M177 321v-90M177 255l-34-35M177 255l38-31M146 319l31-53 34 53" fill="none"/>
+    <path d="M302 338v-105M302 260l-40-32M302 260l42-38M271 338l31-74 39 74" fill="none"/>
+    <path d="M436 333v-87M436 267l-38-34M436 267l38-27M406 333l30-63 36 63" fill="none"/>
+  </g>
+  <circle cx="177" cy="207" r="26" fill="#f49e8d" stroke="#123354" stroke-width="8"/>
+  <circle cx="302" cy="207" r="26" fill="#f2b36e" stroke="#123354" stroke-width="8"/>
+  <circle cx="436" cy="219" r="26" fill="#9c7bc2" stroke="#123354" stroke-width="8"/>
+  <path d="M140 152h84M260 136h84M394 163h84" stroke="#e78a3c" stroke-width="9" stroke-linecap="round"/>
+</svg>

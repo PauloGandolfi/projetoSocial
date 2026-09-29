@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 320" role="img" aria-labelledby="food-title">
+  <title id="food-title">Ilustração de voluntários organizando alimentos</title>
+  <rect width="560" height="320" fill="#fff0e3"/>
+  <path d="M92 236h376" stroke="#123354" stroke-width="10" stroke-linecap="round"/>
+  <rect x="168" y="118" width="224" height="118" rx="8" fill="#e78a3c" stroke="#123354" stroke-width="8"/>
+  <path d="M168 159h224M280 118v118" stroke="#fff" stroke-width="7" opacity=".8"/>
+  <circle cx="159" cy="95" r="28" fill="#9c7bc2" stroke="#123354" stroke-width="7"/>
+  <path d="M123 192c4-58 67-58 72 0" fill="#2d83a7" stroke="#123354" stroke-width="7"/>
+  <circle cx="402" cy="95" r="28" fill="#f49e8d" stroke="#123354" stroke-width="7"/>
+  <path d="M368 192c4-58 67-58 72 0" fill="#7bb7ad" stroke="#123354" stroke-width="7"/>
+  <path d="M118 257h324" stroke="#b9621d" stroke-width="9" stroke-linecap="round"/>
+</svg>

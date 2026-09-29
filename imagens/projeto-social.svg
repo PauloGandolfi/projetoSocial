@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 320" role="img" aria-labelledby="education-title">
+  <title id="education-title">Ilustração de estudante em oficina de tecnologia</title>
+  <rect width="560" height="320" fill="#e9f4f7"/>
+  <rect x="92" y="55" width="376" height="190" rx="12" fill="#fff" stroke="#1b5a82" stroke-width="8"/>
+  <path d="M78 258h404" stroke="#123354" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="280" cy="142" r="48" fill="#f2b36e"/>
+  <path d="M239 218c9-38 73-38 82 0" fill="#2d83a7"/>
+  <path d="M246 113c18-24 49-22 68 0" fill="none" stroke="#123354" stroke-width="11" stroke-linecap="round"/>
+  <path d="M164 92v110M396 92v110" stroke="#b5dce2" stroke-width="6"/>
+  <path d="M130 278h300" stroke="#e78a3c" stroke-width="8" stroke-linecap="round"/>
+</svg>
