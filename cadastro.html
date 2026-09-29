@@ -16,11 +16,15 @@
         <img src="imagens/logo.svg" alt="" width="48" height="48">
         <span>Instituto Novo Horizonte</span>
       </a>
-      <nav aria-label="Navegação principal">
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="primary-navigation" class="primary-navigation" aria-label="Navegação principal">
         <ul class="nav-list">
           <li><a href="index.html">Início</a></li>
           <li><a href="projetos.html">Projetos</a></li>
-          <li><a class="nav-cta" href="cadastro.html" aria-current="page">Seja voluntário</a></li>
+          <li><a href="cadastro.html" aria-current="page">Seja voluntário</a></li>
+          <li><button class="nav-cta" type="button" data-open-dialog>Quero participar</button></li>
         </ul>
       </nav>
     </div>
@@ -43,7 +47,11 @@
           <p>Os campos marcados com <span aria-hidden="true">*</span> são obrigatórios. Use os formatos indicados para que possamos falar com você.</p>
           <p class="privacy-note">Seus dados serão usados somente para contato relacionado ao voluntariado.</p>
         </div>
-        <form id="volunteer-form" action="#" method="post">
+        <form id="volunteer-form" action="#" method="post" novalidate>
+          <div class="alert alert-error form-error" id="form-error" role="alert" tabindex="-1" hidden>
+            <span class="alert-symbol" aria-hidden="true">!</span>
+            <p>Revise os campos destacados e confira os formatos indicados antes de enviar.</p>
+          </div>
           <fieldset>
             <legend>Dados pessoais</legend>
             <div class="form-grid">
@@ -132,8 +140,10 @@
               </div>
             </div>
           </fieldset>
-          <button class="button" type="submit">Enviar cadastro</button>
-          <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+          <div class="form-submit-row">
+            <button class="button" type="submit">Enviar cadastro</button>
+            <p class="small-note">Os campos marcados com * são obrigatórios.</p>
+          </div>
         </form>
       </div>
     </section>
@@ -145,5 +155,22 @@
       <p>© <time datetime="2026">2026</time> Instituto Novo Horizonte. Todos os direitos reservados.</p>
     </div>
   </footer>
+
+  <dialog class="participation-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+    <div class="dialog-content">
+      <button class="dialog-close" type="button" aria-label="Fechar janela" data-close-dialog>×</button>
+      <p class="eyebrow">Faça parte da mudança</p>
+      <h2 id="dialog-title">Como você quer ajudar?</h2>
+      <p id="dialog-description">Escolha um próximo passo e venha construir novos horizontes com a gente.</p>
+      <div class="dialog-actions">
+        <a class="button" href="cadastro.html">Quero ser voluntário</a>
+        <a class="button button-outline" href="projetos.html#doacoes">Quero apoiar com uma doação</a>
+      </div>
+    </div>
+  </dialog>
+  <div class="toast" id="site-toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+    <span class="toast-message"></span>
+    <button type="button" class="toast-close" aria-label="Fechar notificação">×</button>
+  </div>
 </body>
 </html>

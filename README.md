@@ -2,52 +2,31 @@
 
 ## Sobre o projeto
 
-Site institucional fictício de uma ONG que promove inclusão social, educação e apoio a comunidades em situação de vulnerabilidade. O projeto foi feito como uma página acadêmica simples, sem backend e sem dependências externas.
+Site institucional de uma ONG fictícia que promove inclusão social, educação e apoio comunitário. O projeto é feito com HTML, CSS e JavaScript puros, sem dependências ou backend.
 
-## Tecnologias utilizadas
+## Tecnologias e estrutura
 
-- HTML5
-- CSS3
-- JavaScript puro
-
-## Estrutura de pastas
-
-```text
-projeto-ong/
-├── index.html
-├── projetos.html
-├── cadastro.html
-├── css/
-│   └── style.css
-├── js/
-│   └── script.js
-└── imagens/
-    ├── logo.svg
-    ├── banner.svg
-    ├── projeto-social.svg
-    └── voluntariado.svg
-```
-
-As ilustrações são SVGs locais, portanto o site funciona sem conexão com a internet.
-
-## Páginas
-
-- `index.html`: apresentação, missão, áreas de atuação e contato.
+- `index.html`: apresentação, projetos em destaque, indicadores de impacto, exemplos de alertas e contato.
 - `projetos.html`: projetos sociais, voluntariado, doações e campanhas.
 - `cadastro.html`: formulário acessível para cadastro de voluntários.
+- `css/style.css`: identidade visual, componentes e regras responsivas.
+- `js/script.js`: menu móvel, modal, toast, máscaras e validação do formulário.
+- `imagens/`: ilustrações e identidade visual locais.
 
-## Recursos de acessibilidade
+## Layout e acessibilidade
 
-O site usa HTML semântico, textos alternativos descritivos, labels associados aos campos, foco visível para teclado, navegação clara, hierarquia de títulos, `lang="pt-BR"` e um link para pular diretamente ao conteúdo principal. O símbolo do logo é decorativo no cabeçalho e usa `alt=""`.
+Os blocos principais usam CSS Grid com 12 colunas. Flexbox organiza navegação, ações, botões, cards e mensagens. O CSS define cores, espaçamentos, tipografia, bordas, sombras e transições em `:root`.
 
-## Validações do formulário
+Os breakpoints são desktop (acima de 1024px), tablet (701px a 1024px) e mobile (até 700px). O menu recolhe em telas de até 760px. O site inclui link para pular ao conteúdo, navegação por teclado, foco visível, labels associadas aos campos, mensagens anunciadas por leitores de tela e suporte a preferência por movimento reduzido.
 
-O cadastro usa validações nativas com `required`, `type="email"`, `type="date"`, `pattern` para CPF, telefone e CEP, e `minlength` para o nome. O JavaScript aplica máscaras enquanto a pessoa digita e impede o envio para um servidor inexistente. Quando os dados são válidos, uma mensagem de sucesso aparece na página.
+## Como executar e conferir os componentes
 
-## Como executar
+Abra `index.html` no navegador ou use uma extensão como Live Server. Não é necessário instalar dependências.
 
-Abra `index.html` diretamente no navegador ou use uma extensão como Live Server. Não é necessário instalar dependências.
+1. Em uma janela estreita (até 760px), use o botão hambúrguer para abrir e fechar o menu.
+2. Selecione **Quero participar** para abrir o modal; feche pelo botão ×, clicando fora ou pressionando Esc. Teste os links para voluntariado e doações.
+3. Na página inicial, confira os exemplos de alerta informativo e de erro.
+4. Abra `cadastro.html` e tente enviar o formulário vazio para ver o alerta de erro e os campos inválidos. Preencha os dados, incluindo CPF, telefone e CEP nos formatos indicados, aceite o consentimento e envie para ver o toast de sucesso.
+5. No formulário, teste foco com Tab e os estados de erro e sucesso dos campos.
 
-## W3C Validator
-
-Para validar o HTML, acesse o [W3C Markup Validation Service](https://validator.w3.org/) e envie individualmente `index.html`, `projetos.html` e `cadastro.html`. O CSS pode ser revisado no [CSS Validation Service](https://jigsaw.w3.org/css-validator/).
+O cadastro é demonstrativo: como não existe servidor, o envio válido é confirmado localmente e os dados não são armazenados.
