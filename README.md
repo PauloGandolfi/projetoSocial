@@ -59,7 +59,7 @@ npm install
 npm run dev
 ```
 
-Abra `http://localhost:5173/html/index.html`. As páginas `projetos.html` e `cadastro.html` também ficam dentro de `/html/`.
+Abra `http://localhost:5173/`. As páginas `projetos.html` e `cadastro.html` ficam em `/projetos.html` e `/cadastro.html`.
 
 ## Versionamento
 
@@ -88,10 +88,10 @@ A build multipágina é gravada em `dist/`. O Vite minifica JavaScript e CSS; a 
 
 ## Deploy
 
-O deploy será realizado posteriormente pelo responsável do projeto na Vercel. Para conferir a saída localmente antes disso, execute:
+Na Vercel, use a raiz do repositório como diretório do projeto, `npm run build` como comando de build e `dist` como diretório de saída. Para conferir a saída localmente, execute:
 
 ```bash
 npm run preview
 ```
 
-Abra o endereço informado pelo Vite, normalmente `http://localhost:4173/html/index.html`, e teste também as páginas de projetos e cadastro. A pasta `dist/` é a saída a publicar. Nenhum deploy é executado por estes comandos.
+Abra o endereço informado pelo Vite, normalmente `http://localhost:4173/`, e confira também `/projetos.html` e `/cadastro.html`. A pasta `dist/` é a saída a publicar. Nenhum deploy é executado por estes comandos.
