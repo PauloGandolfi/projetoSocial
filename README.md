@@ -1,48 +1,97 @@
 # Instituto Novo Horizonte
 
-## Sobre
+## Sobre o projeto
 
-Site demonstrativo de uma ONG, feito com HTML, CSS e Vanilla JavaScript. Não usa backend nem bibliotecas externas.
+Aplicação demonstrativa para uma organização sem fins lucrativos. O site apresenta ações sociais, formas de participação e um cadastro de voluntariado. A interface usa HTML, CSS e JavaScript sem framework de interface ou backend.
 
-## Estrutura
+## Objetivo da aplicação
+
+Apresentar os projetos do Instituto Novo Horizonte e permitir que visitantes conheçam oportunidades de voluntariado, enviem um cadastro demonstrativo e consultem as informações de contato.
+
+## Tecnologias utilizadas
+
+- HTML semântico;
+- CSS responsivo, variáveis de tema e animações reduzidas conforme a preferência do sistema;
+- JavaScript moderno com módulos ES;
+- Vite para desenvolvimento, build multipágina e pré-visualização;
+- `html-minifier-terser` para minificar as páginas HTML após a build.
+
+O Vite 8 requer Node.js 20.19+ ou 22.12+. Instale uma versão compatível antes de executar os comandos abaixo.
+
+## Estrutura de diretórios
 
 ```text
-html/
-  index.html
-  projetos.html
-  cadastro.html
-css/
-  style.css
-images/
-  logo.svg, banner.svg, ilustrações e imagens locais
-js/
-  main.js       ponto de entrada
-  navigation.js navegação SPA e menu mobile
-  templates.js  dados e renderização de cards
-  form.js       máscaras, validação e envio demonstrativo
-  modal.js      abertura e fechamento do modal
-  toast.js      avisos de sucesso, erro e informação
-  storage.js    leitura e gravação no localStorage
+html/                  páginas de início, projetos e cadastro
+css/style.css          estilos, responsividade e temas
+images/                ilustrações SVG e imagens locais
+js/                    módulos de navegação, formulário, modal e tema
+scripts/               etapa de minificação do HTML de produção
+dist/                  arquivos gerados pela build (não versionados)
+package.json           dependências e comandos npm
+vite.config.js         entradas HTML da build multipágina
+.gitignore             saídas e arquivos locais ignorados pelo Git
 ```
 
-## Como executar
+## Funcionalidades
 
-Sirva a pasta do projeto em um servidor local simples, por exemplo com a extensão Live Server do VS Code, e abra `/html/index.html`. É necessário usar um servidor local porque os módulos ES e o carregamento SPA usam `import` e `fetch`; abrir o arquivo diretamente com `file://` bloqueia esses recursos em alguns navegadores.
+- Navegação entre as três páginas sem recarregar a janela, com suporte aos botões voltar e avançar do navegador;
+- menu compacto para celular e tablets, com estado anunciado e fechamento pela tecla Escape;
+- cards de projetos gerados a partir de dados em JavaScript;
+- modal de participação com links para cadastro e projetos;
+- formulário de voluntariado com máscaras, validação por campo e resumo de erros;
+- confirmação por toast e armazenamento local dos cadastros demonstrativos;
+- tema claro e escuro com preferência salva neste navegador.
 
-## Como a aplicação funciona
+O formulário é apenas demonstrativo. Os dados não são enviados a um servidor. O navegador guarda somente nome, e-mail, área de interesse, disponibilidade e data do envio.
 
-`main.js` inicializa os módulos e renderiza a página atual. `navigation.js` intercepta links internos, carrega o próximo HTML com `fetch`, atualiza somente o `<main>` e registra o endereço com History API; voltar e avançar no navegador também atualiza a seção.
+## Acessibilidade
 
-`templates.js` mantém os projetos como objetos e usa `map()` e template literals para gerar cards nas páginas inicial e de projetos. `form.js` valida os campos no evento `input`, usa uma expressão regular simples para e-mail, bloqueia envios inválidos, mostra mensagens por campo e apresenta o toast quando o cadastro é aceito.
+O site usa regiões semânticas, link para pular ao conteúdo, rótulos associados aos campos, foco visível, navegação por teclado, estado acessível do menu, mensagens de validação ligadas aos campos e avisos dinâmicos com regiões de status. O modal usa o elemento nativo `<dialog>`, recebe foco ao abrir, fecha com Escape e devolve o foco ao acionador. As ilustrações informativas têm texto alternativo; imagens decorativas usam texto alternativo vazio ou são ocultadas da árvore acessível.
 
-`storage.js` grava e recupera os cadastros demonstrativos por `localStorage`, usando `JSON.stringify()` e `JSON.parse()`. São guardados nome, e-mail, área de interesse, disponibilidade e data do envio. CPF, telefone e endereço não são persistidos. Ao abrir a página de cadastro, uma mensagem informa a quantidade de registros salvos neste navegador. Os dados podem ser limpos em DevTools → Application/Armazenamento → Local Storage.
+O tema escuro mantém as cores em variáveis CSS e atualiza a preferência no `localStorage`. A interface continua operável se o navegador bloquear esse armazenamento, mas a escolha não será preservada entre visitas.
 
-## Teste manual
+## Como executar localmente
 
-1. Reduza a largura da janela para até 760 px, abra o menu hambúrguer e escolha uma opção; o menu deve fechar.
-2. Abra **Quero participar**. Feche pelo botão ×, clique fora do diálogo ou pressione Esc. Teste os links do modal.
-3. Navegue entre Início, Projetos e Cadastro. O conteúdo principal deve mudar sem recarregar a página; teste também Voltar e Avançar.
-4. Em Cadastro, deixe campos vazios, digite um e-mail inválido e um nome curto para conferir os erros em tempo real. Um envio inválido não deve limpar o formulário.
-5. Preencha todos os campos obrigatórios, use os formatos de CPF, telefone e CEP mostrados, aceite o consentimento e envie. O toast deve confirmar o cadastro.
-6. Visite outra página e volte a Cadastro; a mensagem de registros salvos deve continuar. Atualize a página e confirme novamente.
-7. Abra o Console do DevTools (F12) durante os passos. A navegação e a renderização devem ocorrer sem erros em vermelho.
+Na pasta do projeto, instale as dependências uma vez e inicie o servidor Vite:
+
+```bash
+npm install
+npm run dev
+```
+
+Abra `http://localhost:5173/html/index.html`. As páginas `projetos.html` e `cadastro.html` também ficam dentro de `/html/`.
+
+## Versionamento
+
+O projeto utiliza Git e pode ser hospedado no GitHub. A estratégia recomendada é manter `main` como versão estável, integrar mudanças em uma branch `develop` quando ela for útil e criar branches `feature/nome-da-funcionalidade` para novas funcionalidades. Correções urgentes podem usar `hotfix/descricao`.
+
+Prefira mensagens de commit no formato Conventional Commits, por exemplo `feat: adicionar tema escuro` ou `fix: devolver foco ao fechar modal`. Esta seção documenta uma estratégia recomendada; não descreve um histórico de branches ou commits.
+
+## Build de produção
+
+Gere a versão pronta para hospedagem estática com:
+
+```bash
+npm run build
+```
+
+A build multipágina é gravada em `dist/`. O Vite minifica JavaScript e CSS; a etapa seguinte minifica HTML sem remover os atributos de acessibilidade.
+
+## Roteiro de verificação manual
+
+1. Navegue entre Início, Projetos e Cadastro; use Voltar e Avançar e confira se o foco acompanha a página.
+2. Em uma janela estreita, abra o menu pelo teclado, confirme `aria-expanded="true"`, feche com Escape e confira o foco no botão do menu.
+3. Abra o modal pelos dois acionadores; confirme o foco inicial, o fechamento por Escape e o retorno do foco ao acionador.
+4. Envie o formulário vazio, corrija os campos e envie dados fictícios válidos; confira os erros associados, o toast e o contador salvo no navegador.
+5. Alterne o tema, atualize a página e confirme que a preferência e o estado do botão foram restaurados.
+6. Confira o console do navegador e rode Lighthouse ou WebAIM Contrast Checker em telas desktop e móvel.
+
+## Deploy
+
+O deploy será realizado posteriormente pelo responsável do projeto na Vercel. Para conferir a saída localmente antes disso, execute:
+
+```bash
+npm run preview
+```
+
+Abra o endereço informado pelo Vite, normalmente `http://localhost:4173/html/index.html`, e teste também as páginas de projetos e cadastro. A pasta `dist/` é a saída a publicar. Nenhum deploy é executado por estes comandos.

@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Conheça o Instituto Novo Horizonte e suas ações de inclusão social, educação e apoio comunitário.">
   <title>Instituto Novo Horizonte | Inclusão que transforma</title>
+  <script>
+    try {
+      if (localStorage.getItem("instituto-novo-horizonte:tema:v1") === "dark") {
+        document.documentElement.classList.add("dark-theme");
+      }
+    } catch {
+      // O tema padrão continua disponível quando o navegador bloqueia o armazenamento.
+    }
+  </script>
   <link rel="stylesheet" href="../css/style.css">
   <script type="module" src="../js/main.js"></script>
 </head>
@@ -16,9 +25,6 @@
         <img src="../images/logo.svg" alt="" width="48" height="48">
         <span>Instituto Novo Horizonte</span>
       </a>
-      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
-        <span></span><span></span><span></span>
-      </button>
       <nav id="primary-navigation" class="primary-navigation" aria-label="Navegação principal">
         <ul class="nav-list">
           <li><a href="index.html" aria-current="page">Início</a></li>
@@ -27,10 +33,16 @@
           <li><button class="nav-cta" type="button" data-open-dialog>Quero participar</button></li>
         </ul>
       </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema claro e escuro" aria-pressed="false"><span class="theme-icon" aria-hidden="true">◐</span><span class="theme-label">Modo escuro</span></button>
+        <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main id="conteudo-principal">
+  <main id="conteudo-principal" tabindex="-1">
     <section class="hero" aria-labelledby="titulo-principal">
       <div class="container hero-grid grid-12">
         <div class="hero-copy">
@@ -43,7 +55,7 @@
           </div>
         </div>
         <figure class="hero-figure">
-          <img src="../images/banner.svg" alt="Pessoas de diferentes idades reunidas em uma atividade comunitária ao ar livre" width="640" height="480">
+          <img src="../images/banner.svg" alt="Pessoas de diferentes idades reunidas em uma atividade comunitária ao ar livre" width="640" height="480" fetchpriority="high">
           <figcaption>Quando a comunidade se une, todo mundo avança.</figcaption>
         </figure>
       </div>
@@ -90,8 +102,8 @@
         <h2 id="feedback-titulo">Componentes de feedback</h2>
         <p class="feedback-caption">Exemplos de avisos que ajudam a orientar quem visita o site.</p>
         <div class="alert-stack">
-          <div class="alert alert-info" role="status"><span class="alert-symbol" aria-hidden="true">i</span><p><strong>Informação:</strong> as oficinas do instituto são gratuitas. Consulte os projetos para saber mais.</p></div>
-          <div class="alert alert-error" role="alert"><span class="alert-symbol" aria-hidden="true">!</span><p><strong>Exemplo de erro:</strong> não foi possível carregar uma atualização. Tente novamente em instantes.</p></div>
+          <div class="alert alert-info"><span class="alert-symbol" aria-hidden="true">i</span><p><strong>Informação:</strong> as oficinas do instituto são gratuitas. Consulte os projetos para saber mais.</p></div>
+          <div class="alert alert-error"><span class="alert-symbol" aria-hidden="true">!</span><p><strong>Exemplo de erro:</strong> não foi possível carregar uma atualização. Tente novamente em instantes.</p></div>
         </div>
       </div>
     </section>

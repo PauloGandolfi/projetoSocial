@@ -1,6 +1,7 @@
 import { initForm } from "./form.js";
 import { initModal } from "./modal.js";
 import { initNavigation } from "./navigation.js";
+import { initTheme } from "./theme.js";
 import { renderProjectCards } from "./templates.js";
 import { initToast } from "./toast.js";
 
@@ -12,5 +13,6 @@ function initializePage(main) {
 }
 
 initModal(document);
+initTheme(document);
 initNavigation({ onRouteChange: initializePage, notify });
 initializePage(document.querySelector("#conteudo-principal"));

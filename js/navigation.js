@@ -8,6 +8,10 @@ function scrollToHash(url) {
   if (!url.hash) return false;
   const target = document.getElementById(decodeURIComponent(url.hash.slice(1)));
   if (!target) return false;
+  if (!target.matches("a, button, input, select, textarea, [tabindex]")) {
+    target.setAttribute("tabindex", "-1");
+  }
+  target.focus({ preventScroll: true });
   target.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
   return true;
 }
@@ -18,10 +22,12 @@ export function initNavigation({ onRouteChange = () => {}, notify = () => {} } =
   const menu = document.querySelector(".primary-navigation");
   let requestNumber = 0;
 
-  function closeMenu() {
+  function closeMenu({ restoreFocus = false } = {}) {
+    const wasOpen = menuToggle?.getAttribute("aria-expanded") === "true";
     menu?.classList.remove("is-open");
     menuToggle?.setAttribute("aria-expanded", "false");
     menuToggle?.setAttribute("aria-label", "Abrir menu");
+    if (restoreFocus && wasOpen) menuToggle?.focus();
   }
 
   function updateCurrentPage(url) {
@@ -83,6 +89,14 @@ export function initNavigation({ onRouteChange = () => {}, notify = () => {} } =
     menu?.classList.toggle("is-open", isOpen);
     menuToggle.setAttribute("aria-expanded", String(isOpen));
     menuToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
+    if (isOpen) menu?.querySelector("a, button")?.focus();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    const dialog = document.querySelector(".participation-dialog");
+    if (event.key === "Escape" && !dialog?.open && menuToggle?.getAttribute("aria-expanded") === "true") {
+      closeMenu({ restoreFocus: true });
+    }
   });
 
   document.addEventListener("click", (event) => {

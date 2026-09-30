@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Cadastre-se para ser voluntário no Instituto Novo Horizonte.">
   <title>Seja voluntário | Instituto Novo Horizonte</title>
+  <script>
+    try {
+      if (localStorage.getItem("instituto-novo-horizonte:tema:v1") === "dark") {
+        document.documentElement.classList.add("dark-theme");
+      }
+    } catch {
+      // O tema padrão continua disponível quando o navegador bloqueia o armazenamento.
+    }
+  </script>
   <link rel="stylesheet" href="../css/style.css">
   <script type="module" src="../js/main.js"></script>
 </head>
@@ -16,9 +25,6 @@
         <img src="../images/logo.svg" alt="" width="48" height="48">
         <span>Instituto Novo Horizonte</span>
       </a>
-      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
-        <span></span><span></span><span></span>
-      </button>
       <nav id="primary-navigation" class="primary-navigation" aria-label="Navegação principal">
         <ul class="nav-list">
           <li><a href="index.html">Início</a></li>
@@ -27,10 +33,16 @@
           <li><button class="nav-cta" type="button" data-open-dialog>Quero participar</button></li>
         </ul>
       </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema claro e escuro" aria-pressed="false"><span class="theme-icon" aria-hidden="true">◐</span><span class="theme-label">Modo escuro</span></button>
+        <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main id="conteudo-principal">
+  <main id="conteudo-principal" tabindex="-1">
     <section class="page-intro" aria-labelledby="titulo-principal">
       <div class="container">
         <p class="eyebrow">Seu tempo pode abrir caminhos</p>

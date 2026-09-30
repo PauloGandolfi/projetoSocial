@@ -24,5 +24,7 @@ export function initModal(root = document) {
 
   dialog.addEventListener("close", () => {
     if (opener?.isConnected) opener.focus();
+    else root.querySelector("#conteudo-principal")?.focus();
+    opener = null;
   });
 }

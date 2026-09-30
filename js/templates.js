@@ -1,3 +1,6 @@
+import educationImage from "../images/projeto-social.svg";
+import volunteerImage from "../images/voluntariado.svg";
+
 const projects = [
   {
     id: "educacao",
@@ -6,7 +9,7 @@ const projects = [
     kicker: "Educação e tecnologia",
     title: "Educação para Todos",
     description: "Aulas de reforço, oficinas de leitura e inclusão digital para crianças e adolescentes.",
-    image: "../images/projeto-social.svg",
+    image: educationImage,
     imageAlt: "Estudante usando um computador durante uma oficina de inclusão digital",
   },
   {
@@ -16,7 +19,7 @@ const projects = [
     kicker: "Segurança alimentar",
     title: "Comunidade Alimentada",
     description: "Campanhas de arrecadação e apoio a famílias acompanhadas pela comunidade.",
-    image: "../images/voluntariado.svg",
+    image: volunteerImage,
     imageAlt: "Voluntários organizando caixas de alimentos para distribuição",
   },
   {
@@ -41,7 +44,7 @@ const projects = [
 
 function projectCard(project, { featured, number }) {
   const visual = project.image
-    ? `<img src="${project.image}" alt="${project.imageAlt}" width="560" height="320">`
+    ? `<img src="${project.image}" alt="${project.imageAlt}" width="560" height="320" loading="lazy" decoding="async">`
     : `<div class="project-art ${project.artClass}" aria-hidden="true"><span>${String(number).padStart(2, "0")}</span></div>`;
   const label = featured ? "Conheça o projeto" : "Apoiar este projeto";
   const destination = featured ? "projetos.html" : "cadastro.html";
@@ -54,7 +57,7 @@ function projectCard(project, { featured, number }) {
         ${featured ? "" : `<p class="card-kicker">${project.kicker}</p>`}
         <h3>${project.title}</h3>
         <p>${project.description}</p>
-        <a class="text-link" href="${destination}">${label} <span aria-hidden="true">→</span></a>
+        <a class="text-link" href="${destination}" aria-label="${label}: ${project.title}">${label} <span aria-hidden="true">→</span></a>
       </div>
     </article>`;
 }
