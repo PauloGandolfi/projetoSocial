@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Conheça os projetos sociais e as formas de participar do Instituto Novo Horizonte.">
   <title>Projetos | Instituto Novo Horizonte</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js" defer></script>
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="../js/main.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Instituto Novo Horizonte, página inicial">
-        <img src="imagens/logo.svg" alt="" width="48" height="48">
+        <img src="../images/logo.svg" alt="" width="48" height="48">
         <span>Instituto Novo Horizonte</span>
       </a>
       <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
@@ -23,6 +23,7 @@
         <ul class="nav-list">
           <li><a href="index.html">Início</a></li>
           <li><a href="projetos.html" aria-current="page">Projetos</a></li>
+          <li><a href="cadastro.html">Seja voluntário</a></li>
           <li><button class="nav-cta" type="button" data-open-dialog>Quero participar</button></li>
         </ul>
       </nav>
@@ -47,48 +48,7 @@
           </div>
           <p>Ações desenhadas com a comunidade e para a comunidade.</p>
         </div>
-        <div class="project-grid">
-          <article class="project-card">
-            <img src="imagens/projeto-social.svg" alt="Estudante usando um computador durante uma oficina de inclusão digital" width="560" height="320">
-            <div class="project-card-content">
-              <span class="badge badge-blue">Educação</span>
-              <p class="card-kicker">Educação e tecnologia</p>
-              <h3>Educação para Todos</h3>
-              <p>Aulas de reforço, oficinas de leitura e inclusão digital para crianças e adolescentes.</p>
-              <a class="text-link" href="cadastro.html">Apoiar este projeto <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-          <article class="project-card">
-            <img src="imagens/voluntariado.svg" alt="Voluntários organizando caixas de alimentos para distribuição" width="560" height="320">
-            <div class="project-card-content">
-              <span class="badge badge-orange">Inclusão</span>
-              <p class="card-kicker">Segurança alimentar</p>
-              <h3>Comunidade Alimentada</h3>
-              <p>Campanhas de arrecadação e distribuição de alimentos para famílias acompanhadas.</p>
-              <a class="text-link" href="cadastro.html">Apoiar este projeto <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-art project-art-orange" aria-hidden="true"><span>03</span></div>
-            <div class="project-card-content">
-              <span class="badge badge-green">Trabalho e renda</span>
-              <p class="card-kicker">Trabalho e renda</p>
-              <h3>Futuro Profissional</h3>
-              <p>Oficinas de currículo, capacitação e preparação para novas oportunidades de trabalho.</p>
-              <a class="text-link" href="cadastro.html">Apoiar este projeto <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-art project-art-green" aria-hidden="true"><span>04</span></div>
-            <div class="project-card-content">
-              <span class="badge badge-green">Meio Ambiente</span>
-              <p class="card-kicker">Cuidado com o território</p>
-              <h3>Horta em Comunidade</h3>
-              <p>Uma horta coletiva que aproxima vizinhos e incentiva o cuidado com o meio ambiente.</p>
-              <a class="text-link" href="cadastro.html">Apoiar este projeto <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-        </div>
+        <div class="project-grid grid-12" data-project-collection="all"></div>
       </div>
     </section>
 

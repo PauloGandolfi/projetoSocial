@@ -224,11 +224,13 @@ textarea { min-height: 7rem; resize: vertical; }
 input:focus, select:focus, textarea:focus { border-color: var(--color-blue); box-shadow: 0 0 0 3px rgba(36, 107, 145, .13); }
 .field.is-invalid input, .field.is-invalid select, .field.is-invalid textarea { border-color: var(--color-error); background: #fffafa; }
 .field.is-valid input, .field.is-valid select, .field.is-valid textarea { border-color: var(--color-success); }
+.field-message { display: block; min-height: 1.2em; margin-top: .25rem; color: var(--color-error); font-size: .82rem; font-weight: 650; }
 .checkbox-field { display: flex; align-items: flex-start; gap: .65rem; }
 .checkbox-field input { width: 1.15rem; min-height: 1.15rem; height: 1.15rem; flex: 0 0 auto; margin-top: .28rem; accent-color: var(--color-green); }
 .checkbox-field label { margin: 0; font-weight: 450; }
 .form-error { margin: 0 0 1.25rem; }
 .form-submit-row { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.stored-status { padding: .8rem 1rem; border-left: 3px solid var(--color-green); border-radius: 0 var(--radius-small) var(--radius-small) 0; background: var(--color-green-light); color: #205c3e; font-size: .9rem; font-weight: 650; }
 
 /* Modal e notificação toast */
 .participation-dialog { width: min(540px, calc(100% - 2rem)); max-width: none; padding: 0; border: 0; border-radius: var(--radius-card); color: var(--color-ink); box-shadow: var(--shadow-float); }
@@ -239,6 +241,8 @@ input:focus, select:focus, textarea:focus { border-color: var(--color-blue); box
 .dialog-close { position: absolute; top: 1rem; right: 1rem; }
 .dialog-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
 .toast { position: fixed; right: max(1rem, calc((100vw - var(--content-width)) / 2)); bottom: 1.25rem; z-index: 30; display: flex; max-width: min(440px, calc(100vw - 2rem)); align-items: center; gap: 1rem; padding: .85rem .9rem .85rem 1.1rem; border: 1px solid #a5d1b4; border-radius: var(--radius-small); background: #eff9f1; color: #1b5534; box-shadow: var(--shadow-card); animation: toast-in 180ms ease-out both; }
+.toast--error { border-color: #ecc5c1; background: var(--color-error-light); color: #762b27; }
+.toast--info { border-color: #b8d8e5; background: #eef8fc; color: #17445a; }
 .toast-message { flex: 1; font-weight: 700; }
 .toast-close { width: 2rem; height: 2rem; background: transparent; font-size: 1.35rem; }
 @keyframes toast-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }

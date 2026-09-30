@@ -1,32 +1,48 @@
 # Instituto Novo Horizonte
 
-## Sobre o projeto
+## Sobre
 
-Site institucional de uma ONG fictícia que promove inclusão social, educação e apoio comunitário. O projeto é feito com HTML, CSS e JavaScript puros, sem dependências ou backend.
+Site demonstrativo de uma ONG, feito com HTML, CSS e Vanilla JavaScript. Não usa backend nem bibliotecas externas.
 
-## Tecnologias e estrutura
+## Estrutura
 
-- `index.html`: apresentação, projetos em destaque, indicadores de impacto, exemplos de alertas e contato.
-- `projetos.html`: projetos sociais, voluntariado, doações e campanhas.
-- `cadastro.html`: formulário acessível para cadastro de voluntários.
-- `css/style.css`: identidade visual, componentes e regras responsivas.
-- `js/script.js`: menu móvel, modal, toast, máscaras e validação do formulário.
-- `imagens/`: ilustrações e identidade visual locais.
+```text
+html/
+  index.html
+  projetos.html
+  cadastro.html
+css/
+  style.css
+images/
+  logo.svg, banner.svg, ilustrações e imagens locais
+js/
+  main.js       ponto de entrada
+  navigation.js navegação SPA e menu mobile
+  templates.js  dados e renderização de cards
+  form.js       máscaras, validação e envio demonstrativo
+  modal.js      abertura e fechamento do modal
+  toast.js      avisos de sucesso, erro e informação
+  storage.js    leitura e gravação no localStorage
+```
 
-## Layout e acessibilidade
+## Como executar
 
-Os blocos principais usam CSS Grid com 12 colunas. Flexbox organiza navegação, ações, botões, cards e mensagens. O CSS define cores, espaçamentos, tipografia, bordas, sombras e transições em `:root`.
+Sirva a pasta do projeto em um servidor local simples, por exemplo com a extensão Live Server do VS Code, e abra `/html/index.html`. É necessário usar um servidor local porque os módulos ES e o carregamento SPA usam `import` e `fetch`; abrir o arquivo diretamente com `file://` bloqueia esses recursos em alguns navegadores.
 
-Os breakpoints são desktop (acima de 1024px), tablet (701px a 1024px) e mobile (até 700px). O menu recolhe em telas de até 760px. O site inclui link para pular ao conteúdo, navegação por teclado, foco visível, labels associadas aos campos, mensagens anunciadas por leitores de tela e suporte a preferência por movimento reduzido.
+## Como a aplicação funciona
 
-## Como executar e conferir os componentes
+`main.js` inicializa os módulos e renderiza a página atual. `navigation.js` intercepta links internos, carrega o próximo HTML com `fetch`, atualiza somente o `<main>` e registra o endereço com History API; voltar e avançar no navegador também atualiza a seção.
 
-Abra `index.html` no navegador ou use uma extensão como Live Server. Não é necessário instalar dependências.
+`templates.js` mantém os projetos como objetos e usa `map()` e template literals para gerar cards nas páginas inicial e de projetos. `form.js` valida os campos no evento `input`, usa uma expressão regular simples para e-mail, bloqueia envios inválidos, mostra mensagens por campo e apresenta o toast quando o cadastro é aceito.
 
-1. Em uma janela estreita (até 760px), use o botão hambúrguer para abrir e fechar o menu.
-2. Selecione **Quero participar** para abrir o modal; feche pelo botão ×, clicando fora ou pressionando Esc. Teste os links para voluntariado e doações.
-3. Na página inicial, confira os exemplos de alerta informativo e de erro.
-4. Abra `cadastro.html` e tente enviar o formulário vazio para ver o alerta de erro e os campos inválidos. Preencha os dados, incluindo CPF, telefone e CEP nos formatos indicados, aceite o consentimento e envie para ver o toast de sucesso.
-5. No formulário, teste foco com Tab e os estados de erro e sucesso dos campos.
+`storage.js` grava e recupera os cadastros demonstrativos por `localStorage`, usando `JSON.stringify()` e `JSON.parse()`. São guardados nome, e-mail, área de interesse, disponibilidade e data do envio. CPF, telefone e endereço não são persistidos. Ao abrir a página de cadastro, uma mensagem informa a quantidade de registros salvos neste navegador. Os dados podem ser limpos em DevTools → Application/Armazenamento → Local Storage.
 
-O cadastro é demonstrativo: como não existe servidor, o envio válido é confirmado localmente e os dados não são armazenados.
+## Teste manual
+
+1. Reduza a largura da janela para até 760 px, abra o menu hambúrguer e escolha uma opção; o menu deve fechar.
+2. Abra **Quero participar**. Feche pelo botão ×, clique fora do diálogo ou pressione Esc. Teste os links do modal.
+3. Navegue entre Início, Projetos e Cadastro. O conteúdo principal deve mudar sem recarregar a página; teste também Voltar e Avançar.
+4. Em Cadastro, deixe campos vazios, digite um e-mail inválido e um nome curto para conferir os erros em tempo real. Um envio inválido não deve limpar o formulário.
+5. Preencha todos os campos obrigatórios, use os formatos de CPF, telefone e CEP mostrados, aceite o consentimento e envie. O toast deve confirmar o cadastro.
+6. Visite outra página e volte a Cadastro; a mensagem de registros salvos deve continuar. Atualize a página e confirme novamente.
+7. Abra o Console do DevTools (F12) durante os passos. A navegação e a renderização devem ocorrer sem erros em vermelho.

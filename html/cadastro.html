@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Cadastre-se para ser voluntário no Instituto Novo Horizonte.">
   <title>Seja voluntário | Instituto Novo Horizonte</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js" defer></script>
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="../js/main.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Instituto Novo Horizonte, página inicial">
-        <img src="imagens/logo.svg" alt="" width="48" height="48">
+        <img src="../images/logo.svg" alt="" width="48" height="48">
         <span>Instituto Novo Horizonte</span>
       </a>
       <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
@@ -46,6 +46,7 @@
           <h2 id="formulario-titulo">Vamos começar?</h2>
           <p>Os campos marcados com <span aria-hidden="true">*</span> são obrigatórios. Use os formatos indicados para que possamos falar com você.</p>
           <p class="privacy-note">Seus dados serão usados somente para contato relacionado ao voluntariado.</p>
+          <p class="stored-status" id="stored-status" role="status" aria-live="polite" hidden></p>
         </div>
         <form id="volunteer-form" action="#" method="post" novalidate>
           <div class="alert alert-error form-error" id="form-error" role="alert" tabindex="-1" hidden>
